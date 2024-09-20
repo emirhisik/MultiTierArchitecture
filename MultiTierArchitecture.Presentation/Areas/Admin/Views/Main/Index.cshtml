@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Yönetici Paneli";
+}
+
+<h2>Yönetici Paneli</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">İçerik Yönetimi</h5>
+                <p class="card-text">Yeni içerikler ekleyebilir, mevcut içerikleri düzenleyebilir ve silebilirsiniz.</p>
+                <a asp-area="Admin" asp-controller="Content" asp-action="Index" class="btn btn-primary">İçerik Yönetimine Git</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kullanıcı Yönetimi</h5>
+                <p class="card-text">Kullanıcıları yönetebilir, roller atayabilir ve kullanıcıları devre dışı bırakabilirsiniz.</p>
+                <a asp-area="Admin" asp-controller="User" asp-action="Index" class="btn btn-primary">Kullanıcı Yönetimine Git</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Sistem Ayarları</h5>
+                <p class="card-text">Uygulama ayarlarını yönetebilir, sistem parametrelerini güncelleyebilirsiniz.</p>
+                <a asp-area="Admin" asp-controller="Settings" asp-action="Index" class="btn btn-primary">Sistem Ayarlarına Git</a>
+            </div>
+        </div>
+    </div>
+</div>

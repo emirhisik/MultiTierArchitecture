@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MultiTierArchitecture.Entities.Content>
+
+<h2>İçerik Listesi</h2>
+
+<table class="table table-striped display" id="contentTable">
+    <thead>
+        <tr>
+            <th>Başlık</th>
+            <th>İçerik</th>
+            <th>Oluşturulma Tarihi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var content in Model)
+            {
+                <tr>
+                    <td>@content.Title</td>
+                    <td>@Html.Raw(@content.Description)</td>
+                    <td>@content.CreatedDate.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <a asp-area="Admin" asp-controller="Content" asp-action="Edit" asp-route-id="@content.Id" class="btn btn-warning btn-sm">Düzenle</a>
+                        <a asp-area="Admin" asp-controller="Content" asp-action="Delete" asp-route-id="@content.Id" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">Henüz içerik eklenmedi.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-area="Admin" asp-controller="Content" asp-action="Add" class="btn btn-primary">Yeni İçerik Ekle</a>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#contentTable').DataTable();
+        });
+    </script>
+}
